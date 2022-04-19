@@ -98,8 +98,8 @@ def train(model, train_loader, validation_loader, criterion, optimizer, hook):
                     ))
                 
                 #NOTE: Comment lines below to train and test on whole dataset
-#                 if (running_samples>(0.1*total_samples_in_phase)):
-#                     break                  
+                if (running_samples>(0.1*total_samples_in_phase)):
+                    break                  
 
             epoch_loss = running_loss / running_samples
             epoch_acc = running_corrects / running_samples
