@@ -14,15 +14,15 @@ As AWS cloud is quickly developing and UI is evolving as I write this it is best
 
 ## Project files
 Project consist of multiple files:
-- [`sagemaker.ipynb`] -- main project file. Entrypoint
-- [`hp_optimization.py`] -- python script for Hyperparameter optimization using Sagemaker
-- [`train_model.py`] -- python script for tuning the network. Can be used from Sagemaker or as standalone application
-- [`inference.py`] -- python script for running model inference
-- [`file_list.json`] -- queried for the database to download only part of the dataset
+- [`sagemaker.ipynb`](sagemaker.ipynb) -- main project file. Entrypoint
+- [`hp_optimization.py`](hp_optimization.py) -- python script for Hyperparameter optimization using Sagemaker
+- [`train_model.py`](train_model.py) -- python script for tuning the network. Can be used from Sagemaker or as standalone application
+- [`inference.py`](inference.py) -- python script for running model inference
+- [`file_list.json`](file_list.json) -- queried for the database to download only part of the dataset
 
 ## Dataset
 The Amazon Bin Image Dataset contains over 500,000 images and metadata from bins of a pod in an operating Amazon Fulfillment Center. The bin images in this dataset are captured as robot units carry pods as part of normal Amazon Fulfillment Center operations. 
-Dataset location: [https://registry.opendata.aws/amazon-bin-imagery/]
+Dataset location: [https://registry.opendata.aws/amazon-bin-imagery/](https://registry.opendata.aws/amazon-bin-imagery/)
 
 ### Data selection
 In order to speed up training process only a portion of data was selected from the dataset. 
@@ -31,6 +31,7 @@ In order to speed up training process only a portion of data was selected from t
 - 2666 images with 3 items in it.
 - 2373 images with 4 items in it.
 - 1875 images with 5 items in it.
+
 In total 10441 imaged were used. List of specific files is provided in `file_list.json` file.
 
 ### Data overview
@@ -40,8 +41,8 @@ Sample bin images:
 
 ### Data preprocessing
 Downloaded data had to be divided into train and validation subsets. For this project images were divided as follow:
-- Train: 60%, 
-- Test: 20%, 
+- Train: 60%
+- Test: 20%
 - Valid: 40%
 
 ### Access
@@ -52,7 +53,7 @@ As a baseline model used resnet50 image classification network. ResNet-50 is a c
 
 ### Hyperparameters tuning
 Before actual training I tried to identify best hyperparameters for the training job. For this I created `hpo.py` script which executes just a single epoch on a part of training data and tests following hyperparameter ranges:
-- Learning rate was tuned for range: `0.001, 0.1` - found optimal value is `0.0011430449671521476`..
+- Learning rate was tuned for range: `(0.001, 0.1)` - found optimal value is `0.0011430449671521476`.
 - Batch size was tuned for values: ``{32, 64, 128, 256, 512}`` - found optimal value is `32`.
 
 ### Model training procedure
@@ -78,7 +79,7 @@ After training model can be deployed and used from different AWS services. Deplo
 ## Model Inference
 Using deployed model we can run prediction based on the source images. Let's use sample image such as:
 
-![Test image](test_image.png "Test image")
+![Test image](test_image.jpg "Test image")
 
 In this image network correctly predicted number of objects to be 4.
 
