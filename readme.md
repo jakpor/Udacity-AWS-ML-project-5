@@ -12,4 +12,4 @@ In the git repository there are two main directories:
 - project -- actual project code which can be executed on AWS or standalone to reach the project's goals.
 
 This readme describe just general background for the project.
-For the project files description please refer to [`readme.md`](project/README.md).  file in the `project/` directory.
+For the project files description please refer to [`README.md`](project/README.md).  file in the `project/` directory.

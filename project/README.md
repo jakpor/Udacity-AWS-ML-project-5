@@ -81,7 +81,7 @@ Using deployed model we can run prediction based on the source images. Let's use
 
 ![Test image](test_image.jpg "Test image")
 
-In this image network correctly predicted number of objects to be 4.
+In this image network correctly predicted number of objects to be 4, which matches the image label. It shows that the network operates properly even when the objects are hard to be counted by human (based on provided image).
 
 Example code for model inference:
 ```
