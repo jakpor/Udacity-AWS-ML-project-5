@@ -1,3 +1,10 @@
 *checkpoints*
 train_data/
 data_divided/
+*.zip
+*.log
+*.out
+*.gz
+*.aux
+*.csv
+*.xlsx

@@ -8,8 +8,9 @@ This project is based on the Udatity starter files avaiable [here](https://githu
 
 # Project files structure
 In the git repository there are two main directories: 
-- project_proposal -- contain Latex document with the proposal file describint project overview
+- project_report -- contain Latex document with the project's report file
+- project_proposal -- contain Latex document with the proposal file describing project overview
 - project -- actual project code which can be executed on AWS or standalone to reach the project's goals.
 
 This readme describe just general background for the project.
-For the project files description please refer to [`README.md`](project/README.md).  file in the `project/` directory.
+For the project files description please refer to [`README.md`](project/README.md) file in the `project/` directory.

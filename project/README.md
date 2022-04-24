@@ -32,7 +32,7 @@ In order to speed up training process only a portion of data was selected from t
 - 2373 images with 4 items in it.
 - 1875 images with 5 items in it.
 
-In total 10441 imaged were used. List of specific files is provided in `file_list.json` file.
+In total 10441 images were used. List of specific files is provided in `file_list.json` file.
 
 ### Data overview
 Sample bin images:
@@ -40,7 +40,7 @@ Sample bin images:
 ![sample images in dataset](sample_dataset_images.png "Sample images in dataset")
 
 ### Data preprocessing
-Downloaded data had to be divided into train and validation subsets. For this project images were divided as follow:
+Downloaded data had to be divided into train and validation subsets. For this project images were divided as follows:
 - Train: 60%
 - Test: 20%
 - Valid: 40%
@@ -52,12 +52,12 @@ After preprocessing data are uploaded to `S3` data storage, from where they are 
 As a baseline model used resnet50 image classification network. ResNet-50 is a convolutional neural network that is 50 layers deep. In AWS cloud there is available a pretrained version of the network trained on more than a million images from the [ImageNet database]http://www.image-net.org). The pretrained network can classify images into 1000 object categories, such as keyboard, mouse, pencil, and many animals. As a result, the network has learned rich feature representations for a wide range of images. The network has an image input size of 224-by-224.
 
 ### Hyperparameters tuning
-Before actual training I tried to identify best hyperparameters for the training job. For this I created `hpo.py` script which executes just a single epoch on a part of training data and tests following hyperparameter ranges:
+Before actual training I tried to identify the best hyperparameters for the training job. For this I created `hpo.py` script which executes just a single epoch on a part of training data and tests following hyperparameter ranges:
 - Learning rate was tuned for range: `(0.001, 0.1)` - found optimal value is `0.0011430449671521476`.
 - Batch size was tuned for values: ``{32, 64, 128, 256, 512}`` - found optimal value is `32`.
 
 ### Model training procedure
-After identification of the potentially best hyperparameters I ran training procedure for this task. The code for the training is provided in `train.py` file. The file is prepared to be working from Sagemaker notebook (example usage in `sagemaker.ipynb`) or as a standalone script which can run on your personal machine or on low-cost spot instances. For the 10000 files the training completed in 5 epochs after 2h of operation.
+After identification of potentially the best hyperparameters I ran training procedure for this task. The code for the training is provided in `train.py` file. The file is prepared to be working from Sagemaker notebook (example usage in `sagemaker.ipynb`) or as a standalone script which can run on your personal machine or on low-cost spot instances. For the 10000 files the training completed in 5 epochs after 2h of operation.
 
 ### Model evaluation and debugging
 During training process SageMaker Debugger was enabled and generated following plot:
